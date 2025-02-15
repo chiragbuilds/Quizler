@@ -117,7 +117,8 @@ function resetQuiz() {
     score = 0; // Reset score
     questions = []; // Clear questions array
 
-    // Hide quiz container and show config container
+    configContainer.style.display = "flex";
     quizContainer.style.display = "none";
-    configContainer.style.display = "block";
+
+    quizContainer.innerHTML = ``;
 }
