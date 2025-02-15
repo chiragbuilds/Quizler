@@ -1,0 +1,135 @@
+/* -------------------- Global Styles -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+/* -------------------- Body Styling -------------------- */
+body {
+    background: #0D1117;
+    /* height: 100vh; */
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------------------- Container Styling -------------------- */
+.container-config {
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 100%;
+    margin: auto 10px;
+    padding: 20px;
+    background-color: #161B22;
+    color: #E6EDF3;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* -------------------- Heading & Separator -------------------- */
+.container-config h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #58A6FF;
+    margin-bottom: 10px;
+}
+
+.container-config hr {
+    border: none;
+    height: 2px;
+    background: #30363D;
+    margin: 15px 0;
+}
+
+/* Extra spacing for second HR */
+#secHr {
+    margin: 32px 0;
+}
+
+/* -------------------- Label Styling -------------------- */
+.container-config label {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #E6EDF3;
+    display: block;
+    margin-top: 8px; /* Space between label and input */
+    padding-left: 2px;
+}
+
+/* -------------------- Select Box Styling -------------------- */
+.container-config select {
+    padding: 8px;
+    background: #161B22;
+    color: #E6EDF3;
+    border: 2px solid #30363D;
+    height: 40px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for select box */
+.container-config select:hover {
+    cursor: pointer;
+}
+
+/* Focus effect for select box */
+.container-config select:focus {
+    border-color: #58A6FF;
+    box-shadow: 0 0 5px #58A6FF;
+    outline: none;
+}
+
+/* -------------------- Scrollbar Styling for Select -------------------- */
+.container-config select::-webkit-scrollbar {
+    width: 4px;
+}
+
+.container-config select::-webkit-scrollbar-track {
+    background: #161B22;
+    border-radius: 10px;
+}
+
+.container-config select::-webkit-scrollbar-thumb {
+    background: #30363D;
+    border-radius: 10px;
+}
+
+.container-config select::-webkit-scrollbar-thumb:hover {
+    background: #58A6FF;
+}
+
+/* -------------------- Start Button Styling -------------------- */
+.start-btn {
+    background: #58A6FF;
+    color: #0D1117;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    width: 100%;
+}
+
+/* Hover effect for button */
+.start-btn:hover {
+    background: #1F6FEB;
+}
+
+/* Active state for button */
+.start-btn:active {
+    background: #1157C0;
+}
+
+/* Focus effect for button */
+.start-btn:focus {
+    outline: none;
+    box-shadow: 0 0 8px #58A6FF;
+}
