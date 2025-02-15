@@ -45,13 +45,17 @@ function displayQuestions(quizQuestions) {
         if (currentQuestionIndex < questions.length) {
             showQuestion(questions[currentQuestionIndex]);
         } else {
-            // End of quiz
             quizContainer.innerHTML = `
-                <h2>Congratulations!</h2>
-                <h2>Quiz Completed!</h2>
-                <p>Your score: ${score} out of ${quizQuestions.length}</p>
-                <button id="restart-btn">Restart Quiz</button>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
+                    <h2 style="font-size: 1.5rem; font-weight: bold; margin: 10px 0; color: #ecf0f1;">Congratulations!</h2>
+                    <h2 style="font-size: 2.5rem; font-weight: bold; margin: 10px 0; color: #ecf0f1;">Quiz Completed!</h2>
+                    <p style="font-size: 1rem; margin-bottom: 20px; color: #ecf0f1;">Your score: ${score} out of ${quizQuestions.length}</p>
+                    <button id="restart-btn" style="padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s;">
+                        Restart Quiz
+                    </button>
+                </div>
             `;
+
             document.getElementById("restart-btn").addEventListener("click", resetQuiz);
         }
     });
