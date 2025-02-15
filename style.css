@@ -16,6 +16,15 @@ body {
     justify-content: center;
 }
 
+/* -------------------- Main Container Styling -------------------- */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    width: 100%;
+}
 /* -------------------- Container Styling -------------------- */
 .container-config {
     border-radius: 12px;
@@ -130,6 +139,92 @@ body {
 
 /* Focus effect for button */
 .start-btn:focus {
+    outline: none;
+    box-shadow: 0 0 8px #58A6FF;
+}
+
+/* -------------------- Quiz Container Styling -------------------- */
+.quiz-container {
+    display: none;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #161B22;
+    color: #E6EDF3;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* -------------------- Question Container Styling -------------------- */
+#question-container {
+    margin-bottom: 20px;
+}
+
+/* -------------------- Question Text Styling -------------------- */
+.question {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #E6EDF3;
+}
+
+/* -------------------- Answer Options Styling -------------------- */
+.answer-option {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #30363D;
+    color: #E6EDF3;
+    border: 2px solid #30363D;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: left;
+}
+
+.answer-option:hover {
+    background: #58A6FF;
+    border-color: #58A6FF;
+    color: #0D1117;
+}
+
+.answer-option.correct {
+    background: #238636;
+    border-color: #238636;
+}
+
+.answer-option.incorrect {
+    background: #DA3633;
+    border-color: #DA3633;
+}
+
+/* -------------------- Next Button Styling -------------------- */
+.next-btn {
+    background: #58A6FF;
+    color: #0D1117;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.next-btn:hover {
+    background: #1F6FEB;
+}
+
+.next-btn:active {
+    background: #1157C0;
+}
+
+.next-btn:focus {
     outline: none;
     box-shadow: 0 0 8px #58A6FF;
 }
