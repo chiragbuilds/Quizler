@@ -49,7 +49,7 @@ function displayQuestions(quizQuestions) {
             quizContainer.innerHTML = `
                 <h2>Congratulations!</h2>
                 <h2>Quiz Completed!</h2>
-                <p>Your score: ${score} out of ${questions.length}</p>
+                <p>Your score: ${score} out of ${quizQuestions.length}</p>
                 <button id="restart-btn">Restart Quiz</button>
             `;
             document.getElementById("restart-btn").addEventListener("click", resetQuiz);
@@ -64,6 +64,12 @@ function showQuestion(questionObj) {
     // Clear previous question
     questionContainer.innerHTML = "";
 
+    // Display Question number
+    
+    const questionNum = document.createElement("div");
+    questionNum.classList.add("questionNum");
+    questionNum.innerText = `Question ${currentQuestionIndex+1} of ${questions.length}`;
+    questionContainer.appendChild(questionNum);
     // Display the question
     const questionElement = document.createElement("div");
     questionElement.classList.add("question");

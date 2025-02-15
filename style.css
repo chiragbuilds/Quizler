@@ -228,3 +228,9 @@ body {
     outline: none;
     box-shadow: 0 0 8px #58A6FF;
 }
+
+/* -------------------- NDisplay question Styling -------------------- */
+.questionNum {
+    font-size: 0.95rem;
+    margin: 10px 0;
+}
