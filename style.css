@@ -80,6 +80,10 @@ body {
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
+.container-config option {
+    background: #161B22;
+    color: #E6EDF3;
+}
 
 /* Hover effect for select box */
 .container-config select:hover {
