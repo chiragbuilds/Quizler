@@ -77,7 +77,7 @@ function showQuestion(questionObj) {
     // Display the question
     const questionElement = document.createElement("div");
     questionElement.classList.add("question");
-    questionElement.innerText = questionObj.question;
+    questionElement.innerText = decodeHTML(questionObj.question);
     questionContainer.appendChild(questionElement);
 
     // Display answer options
@@ -87,7 +87,7 @@ function showQuestion(questionObj) {
     answers.forEach(answer => {
         const button = document.createElement("button");
         button.classList.add("answer-option");
-        button.innerText = answer;
+        button.innerText = decodeHTML(answer);
         button.addEventListener("click", () => {
             selectAnswer(answer, questionObj.correct_answer);
         });
@@ -134,4 +134,10 @@ function resetQuiz() {
         <div id="question-container">Loading...</div>
         <button id="next-btn" class="next-btn">Next</button>
     `;  
+}
+
+function decodeHTML(text) {
+    const textArea = document.createElement('textarea');
+    textArea.innerHTML = text;
+    return textArea.value;
 }
