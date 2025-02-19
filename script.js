@@ -130,5 +130,8 @@ function resetQuiz() {
     configContainer.style.display = "flex";
     quizContainer.style.display = "none";
 
-    quizContainer.innerHTML = ``;
+    quizContainer.innerHTML = `
+        <div id="question-container">Loading...</div>
+        <button id="next-btn" class="next-btn">Next</button>
+    `;  
 }
