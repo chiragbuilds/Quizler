@@ -6,14 +6,75 @@
     font-family: "Nunito", sans-serif;
 }
 
+/* -------------------- CSS Variables for Themes -------------------- */
+:root {
+    /* Light Theme Colors */
+    --light-background: #FFFFFF;
+    --light-container-bg: #F5F5F5;
+    --light-text-color: #333333;
+    --light-primary-color: #58A6FF;
+    --light-border-color: #CCCCCC;
+    --light-hover-color: #1F6FEB;
+    --light-correct-color: #34A853;
+    --light-incorrect-color: #EA4335;
+    --light-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    /* Dark Theme Colors */
+    --dark-background: #0D1117;
+    --dark-container-bg: #161B22;
+    --dark-text-color: #E6EDF3;
+    --dark-primary-color: #58A6FF;
+    --dark-border-color: #30363D;
+    --dark-hover-color: #1F6FEB;
+    --dark-correct-color: #238636;
+    --dark-incorrect-color: #DA3633;
+    --dark-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* Default Theme */
+    --background-color: var(--dark-background);
+    --container-bg: var(--dark-container-bg);
+    --text-color: var(--dark-text-color);
+    --primary-color: var(--dark-primary-color);
+    --border-color: var(--dark-border-color);
+    --hover-color: var(--dark-hover-color);
+    --correct-color: var(--dark-correct-color);
+    --incorrect-color: var(--dark-incorrect-color);
+    --box-shadow: var(--dark-box-shadow);
+}
+
+[data-theme="light"] {
+    --background-color: var(--light-background);
+    --container-bg: var(--light-container-bg);
+    --text-color: var(--light-text-color);
+    --primary-color: var(--light-primary-color);
+    --border-color: var(--light-border-color);
+    --hover-color: var(--light-hover-color);
+    --correct-color: var(--light-correct-color);
+    --incorrect-color: var(--light-incorrect-color);
+    --box-shadow: var(--light-box-shadow);
+}
+
+[data-theme="dark"] {
+    --background-color: var(--dark-background);
+    --container-bg: var(--dark-container-bg);
+    --text-color: var(--dark-text-color);
+    --primary-color: var(--dark-primary-color);
+    --border-color: var(--dark-border-color);
+    --hover-color: var(--dark-hover-color);
+    --correct-color: var(--dark-correct-color);
+    --incorrect-color: var(--dark-incorrect-color);
+    --box-shadow: var(--dark-box-shadow);
+}
+
 /* -------------------- Body Styling -------------------- */
 body {
-    background: #0D1117;
-    /* height: 100vh; */
+    background: var(--background-color);
+    color: var(--text-color);
     min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* -------------------- Main Container Styling -------------------- */
@@ -25,6 +86,16 @@ body {
     min-height: 100dvh;
     width: 100%;
 }
+/* -------------------- Theme BTN Styling -------------------- */
+.theme-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.3s;
+}
 /* -------------------- Container Styling -------------------- */
 .container-config {
     border-radius: 12px;
@@ -34,9 +105,10 @@ body {
     width: 100%;
     margin: auto 10px;
     padding: 20px;
-    background-color: #161B22;
-    color: #E6EDF3;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 /* -------------------- Heading & Separator -------------------- */
@@ -44,14 +116,14 @@ body {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 900;
-    color: #58A6FF;
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
 
 .container-config hr {
     border: none;
     height: 2px;
-    background: #30363D;
+    background: var(--border-color);
     margin: 15px 0;
 }
 
@@ -64,7 +136,7 @@ body {
 .container-config label {
     font-size: 1.1rem;
     font-weight: 400;
-    color: #E6EDF3;
+    color: var(--text-color);
     display: block;
     margin-top: 8px; /* Space between label and input */
     padding-left: 2px;
@@ -73,16 +145,16 @@ body {
 /* -------------------- Select Box Styling -------------------- */
 .container-config select {
     padding: 8px;
-    background: #161B22;
-    color: #E6EDF3;
-    border: 2px solid #30363D;
+    background: var(--container-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
     height: 40px;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
 .container-config option {
-    background: #161B22;
-    color: #E6EDF3;
+    background: var(--container-bg);
+    color: var(--text-color);
 }
 
 /* Hover effect for select box */
@@ -92,8 +164,8 @@ body {
 
 /* Focus effect for select box */
 .container-config select:focus {
-    border-color: #58A6FF;
-    box-shadow: 0 0 5px #58A6FF;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
     outline: none;
 }
 
@@ -103,23 +175,23 @@ body {
 }
 
 .container-config select::-webkit-scrollbar-track {
-    background: #161B22;
+    background: var(--container-bg);
     border-radius: 10px;
 }
 
 .container-config select::-webkit-scrollbar-thumb {
-    background: #30363D;
+    background: var(--border-color);
     border-radius: 10px;
 }
 
 .container-config select::-webkit-scrollbar-thumb:hover {
-    background: #58A6FF;
+    background: var(--primary-color);
 }
 
 /* -------------------- Start Button Styling -------------------- */
 .start-btn {
-    background: #58A6FF;
-    color: #0D1117;
+    background: var(--primary-color);
+    color: var(--background-color);
     font-size: 1.2rem;
     font-weight: 700;
     border: none;
@@ -129,22 +201,23 @@ body {
     transition: all 0.3s ease-in-out;
     text-align: center;
     width: 100%;
+    box-shadow: var(--box-shadow);
 }
 
 /* Hover effect for button */
 .start-btn:hover {
-    background: #1F6FEB;
+    background: var(--hover-color);
 }
 
 /* Active state for button */
 .start-btn:active {
-    background: #1157C0;
+    background: var(--primary-color);
 }
 
 /* Focus effect for button */
 .start-btn:focus {
     outline: none;
-    box-shadow: 0 0 8px #58A6FF;
+    box-shadow: 0 0 8px var(--primary-color);
 }
 
 /* -------------------- Quiz Container Styling -------------------- */
@@ -155,9 +228,10 @@ body {
     margin-top: 20px;
     padding: 20px;
     border-radius: 12px;
-    background: #161B22;
-    color: #E6EDF3;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    background: var(--container-bg);
+    color: var(--text-color);
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 /* -------------------- Question Container Styling -------------------- */
@@ -170,7 +244,7 @@ body {
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: #E6EDF3;
+    color: var(--text-color);
 }
 
 /* -------------------- Answer Options Styling -------------------- */
@@ -179,9 +253,9 @@ body {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    background: #30363D;
-    color: #E6EDF3;
-    border: 2px solid #30363D;
+    background: var(--border-color);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -189,25 +263,25 @@ body {
 }
 
 .answer-option:hover {
-    background: #58A6FF;
-    border-color: #58A6FF;
-    color: #0D1117;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--background-color);
 }
 
 .answer-option.correct {
-    background: #238636;
-    border-color: #238636;
+    background: var(--correct-color);
+    border-color: var(--correct-color);
 }
 
 .answer-option.incorrect {
-    background: #DA3633;
-    border-color: #DA3633;
+    background: var(--incorrect-color);
+    border-color: var(--incorrect-color);
 }
 
 /* -------------------- Next Button Styling -------------------- */
 .next-btn {
-    background: #58A6FF;
-    color: #0D1117;
+    background: var(--primary-color);
+    color: var(--background-color);
     font-size: 1.2rem;
     font-weight: 700;
     border: none;
@@ -218,23 +292,25 @@ body {
     text-align: center;
     width: 100%;
     margin-top: 20px;
+    box-shadow: var(--box-shadow);
 }
 
 .next-btn:hover {
-    background: #1F6FEB;
+    background: var(--hover-color);
 }
 
 .next-btn:active {
-    background: #1157C0;
+    background: var(--primary-color);
 }
 
 .next-btn:focus {
     outline: none;
-    box-shadow: 0 0 8px #58A6FF;
+    box-shadow: 0 0 8px var(--primary-color);
 }
 
-/* -------------------- NDisplay question Styling -------------------- */
+/* -------------------- Question Number Styling -------------------- */
 .questionNum {
     font-size: 0.95rem;
     margin: 10px 0;
+    color: var(--text-color);
 }

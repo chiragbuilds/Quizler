@@ -2,6 +2,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById('start-btn');
     const quizContainer = document.getElementById("quiz-container");
     const configContainer = document.getElementById("container-config");
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    body.setAttribute("data-theme", savedTheme);
+    themeToggle.classList.toggle("fa-sun", savedTheme === "light");
+    themeToggle.classList.toggle("fa-moon", savedTheme === "dark");
+    themeToggle.addEventListener("click", () => {
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        body.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+
+        // Toggle icon
+        themeToggle.classList.toggle("fa-sun", newTheme === "light");
+        themeToggle.classList.toggle("fa-moon", newTheme === "dark");
+    });
 
     startButton.addEventListener("click", () => {
         configContainer.style.display = "none";
@@ -41,20 +58,35 @@ function displayQuestions(quizQuestions) {
 
     
     nextButton.addEventListener("click", () => {
+        const theme = document.documentElement.getAttribute("data-theme");
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
             showQuestion(questions[currentQuestionIndex]);
         } else {
-            quizContainer.innerHTML = `
-                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
-                    <h2 style="font-size: 1.5rem; font-weight: bold; margin: 10px 0; color: #ecf0f1;">Congratulations!</h2>
-                    <h2 style="font-size: 2.5rem; font-weight: bold; margin: 10px 0; color: #ecf0f1;">Quiz Completed!</h2>
-                    <p style="font-size: 1rem; margin-bottom: 20px; color: #ecf0f1;">Your score: ${score} out of ${quizQuestions.length}</p>
-                    <button id="restart-btn" style="padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s;">
-                        Restart Quiz
-                    </button>
-                </div>
-            `;
+            if(theme === "dark"){
+                quizContainer.innerHTML = `
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
+                        <h2 style="font-size: 1.5rem; font-weight: bold; margin: 10px 0; color: #ecf0f1;">Congratulations!</h2>
+                        <h2 style="font-size: 2.5rem; font-weight: bold; margin: 10px 0; color: #ecf0f1;">Quiz Completed!</h2>
+                        <p style="font-size: 1rem; margin-bottom: 20px; color: #ecf0f1;">Your score: ${score} out of ${quizQuestions.length}</p>
+                        <button id="restart-btn" style="padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s;">
+                            Restart Quiz
+                        </button>
+                    </div>
+                `;
+            }
+            else{
+                quizContainer.innerHTML = `
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
+                        <h2 style="font-size: 1.5rem; font-weight: bold; margin: 10px 0; color: #2c3e50;">Congratulations!</h2>
+                        <h2 style="font-size: 2.5rem; font-weight: bold; margin: 10px 0; color: #2c3e50;">Quiz Completed!</h2>
+                        <p style="font-size: 1rem; margin-bottom: 20px; color: #2c3e50;">Your score: ${score} out of ${quizQuestions.length}</p>
+                        <button id="restart-btn" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s;">
+                            Restart Quiz
+                        </button>
+                    </div>
+                `;
+            }
 
             document.getElementById("restart-btn").addEventListener("click", resetQuiz);
         }
