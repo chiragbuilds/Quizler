@@ -314,3 +314,84 @@ body {
     margin: 10px 0;
     color: var(--text-color);
 }
+/* -------------------- End Screen Styling -------------------- */
+
+/* .end-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.end-screen-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: var(--text-color); 
+}
+
+.restart-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.restart-btn:hover {
+    background-color: var(--hover-color);
+}
+ */
+ .end-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.end-screen-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.end-screen .end-screen-text:nth-child(2) {
+    font-size: 2.5rem;
+}
+
+.end-screen p.end-screen-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Dark Theme */
+.dark .end-screen-text {
+    color: #ecf0f1;
+}
+
+/* Light Theme */
+.light .end-screen-text {
+    color: #2c3e50;
+}
+
+.restart-btn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.light .restart-btn {
+    background-color: #007bff;
+}
