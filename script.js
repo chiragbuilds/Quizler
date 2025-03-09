@@ -1,3 +1,5 @@
+import { playCorrectSound, playIncorrectSound } from './sound.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById('start-btn');
     const quizContainer = document.getElementById("quiz-container");
@@ -140,12 +142,15 @@ function selectAnswer(selectedAnswer, correctAnswer) {
         button.disabled = true; // Disable all buttons after selection
         if (button.innerText === correctAnswer) {
             button.classList.add("correct");
+            
         } else if (button.innerText === selectedAnswer) {
             button.classList.add("incorrect");
+            playIncorrectSound();
         }
     });
 
     if (selectedAnswer === correctAnswer) {
+        playCorrectSound();
         score++;
     }
 }
