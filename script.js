@@ -1,10 +1,13 @@
 import { playCorrectSound, playIncorrectSound } from './sound.js';
 
+var isMuted = false;
+
 document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById('start-btn');
     const quizContainer = document.getElementById("quiz-container");
     const configContainer = document.getElementById("container-config");
     const themeToggle = document.getElementById("theme-toggle");
+    const volumeToggle = document.getElementById("volume-toggle");
     const body = document.body;
     const savedTheme = localStorage.getItem("theme") || "dark";
     body.setAttribute("data-theme", savedTheme);
@@ -20,6 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // Toggle icon
         themeToggle.classList.toggle("fa-sun", newTheme === "light");
         themeToggle.classList.toggle("fa-moon", newTheme === "dark");
+    });
+
+    volumeToggle.addEventListener("click",()=> {
+        isMuted = !isMuted;
+        if(isMuted){
+            volumeToggle.classList.remove("fa-volume-high");
+            volumeToggle.classList.add("fa-volume-xmark");
+        }
+        else{
+            volumeToggle.classList.remove("fa-volume-xmark");
+            volumeToggle.classList.add("fa-volume-high");
+        }
     });
 
     startButton.addEventListener("click", () => {
@@ -140,12 +155,16 @@ function selectAnswer(selectedAnswer, correctAnswer) {
             
         } else if (button.innerText === selectedAnswer) {
             button.classList.add("incorrect");
-            playIncorrectSound();
+            if(isMuted === false){
+                playIncorrectSound();
+            }
         }
     });
 
     if (selectedAnswer === correctAnswer) {
-        playCorrectSound();
+        if(isMuted === false){
+            playCorrectSound();
+        }
         score++;
     }
 }

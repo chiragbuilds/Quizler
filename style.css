@@ -96,6 +96,18 @@ body {
     color: var(--text-color);
     transition: all 0.3s;
 }
+/* -------------------- Volume BTN Styling -------------------- */
+.volume-btn {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+
+
 /* -------------------- Container Styling -------------------- */
 .container-config {
     border-radius: 12px;
@@ -316,37 +328,6 @@ body {
 }
 /* -------------------- End Screen Styling -------------------- */
 
-/* .end-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-}
-
-.end-screen-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 10px 0;
-    color: var(--text-color); 
-}
-
-.restart-btn {
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.restart-btn:hover {
-    background-color: var(--hover-color);
-}
- */
  .end-screen {
     display: flex;
     flex-direction: column;
