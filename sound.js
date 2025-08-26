@@ -8,5 +8,6 @@ export function playCorrectSound() {
 
 export function playIncorrectSound() {
     incorrectSound.currentTime = 0;
+    incorrectSound.volume = 0.15;
     incorrectSound.play();
 }
